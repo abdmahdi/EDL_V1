@@ -42,9 +42,17 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework',
     'rest_framework.authtoken',
-	'authemail',
+	'authemail', 
+ "corsheaders",
 ]
+# CORS_ALLOWED_ORIGINS = [
+#     "https://example.com",
+#     "https://sub.example.com",
+#     "http://localhost",
+#     "http://127.0.0.1",
+# ]
 
+CORS_ALLOW_ALL_ORIGINS = True
 AUTH_USER_MODEL = 'Personnel.Users'
 
 REST_FRAMEWORK = {
@@ -60,6 +68,7 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

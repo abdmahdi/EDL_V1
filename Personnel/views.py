@@ -13,11 +13,11 @@ from Etudiant.serializers import *
 # Create your views here.
 
 
-class CreateUser(CreateAPIView):
-    serializer_class = UserSerializers
-    def perform_create(self, serializer):
-            serializer.save(is_active=True,is_verified=True)
-    queryset = Users.objects.all()        
+# class CreateUser(CreateAPIView):
+#     serializer_class = UserSerializers
+#     def perform_create(self, serializer):
+#             serializer.save(is_active=True,is_verified=True)
+#     queryset = Users.objects.all()        
 
 
 
@@ -105,7 +105,7 @@ class ListInscriptionLicenceSCIENCESECONOMIQUESView(ListAPIView):
     serializer_class = ListInscriptionLicenceSerializers
     permission_classes = [AllowAny]
     def get_queryset(self):
-        return InscriptionLicense.objects.filter(specialite="SCIENCES ECONOMIQUES",is_accept=True)    
+        return InscriptionLicense.objects.filter(specialite="SCIENCES ECONOMIQUES ",is_accept=True)    
     
 #################################################### Signle View ###################################################################    
     
@@ -137,7 +137,7 @@ class SingleViewInscrpitonLicenceSCIENCESECONOMIQUES(RetrieveAPIView):
      serializer_class = ListInscriptionLicenceSerializers
      permission_classes = [AllowAny]
      def get_queryset(self):
-            return InscriptionLicense.objects.filter(specialite="SCIENCES ECONOMIQUES",is_accept=True)                        
+            return InscriptionLicense.objects.filter(specialite="SCIENCES ECONOMIQUES ",is_accept=True)                        
      
      
     
@@ -160,15 +160,16 @@ class OffresMaster(ListAPIView):
     queryset = OffreMaster.objects.all()
    
 class CreateOffreLicence(CreateAPIView):
+    permission_classes = [IsAdminUser]
     serializer_class = OffreLicenceSerializers
     queryset = OffreLicence.objects.all()
    
 class CreateOffreMaster(CreateAPIView):
+    permission_classes = [IsAdminUser]
     serializer_class = OffreMasterSerializers
     queryset = OffreMaster.objects.all()
  
  
-
 
 
 ##########################################################@@@@@#####@@@##@#@#@#@##@#@#@@#@#@#@@#@#@@

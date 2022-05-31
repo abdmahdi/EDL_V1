@@ -5,7 +5,7 @@ from .email import *
 Department_choice = (('Informatique','Informatique'),
                      ('SCIENCES HUMAINES','SCIENCES HUMAINES'),
                      ('SCIENCES SOCIALES','SCIENCES SOCIALES'),
-                     ('SCIENCES ECONOMIQUES ','SCIENCES ECONOMIQUES '),
+                     ('SCIENCES ECONOMIQUES','SCIENCES ECONOMIQUES'),
                      )
 
 class Users(EmailAbstractUser):
