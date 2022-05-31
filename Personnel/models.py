@@ -14,7 +14,7 @@ class Users(EmailAbstractUser):
     specialite = models.CharField(choices=Department_choice,default='Informatique',max_length=200)
     department = models.CharField(max_length=10,default="NTIC")
     filier = models.CharField(max_length=10,default="")
-    matricule = models.IntegerField(unique=True,default=0000000000)
+    matricule = models.IntegerField(default=0000000000)
     annee = models.CharField(max_length=10,default="")
     moyenne_s1 = models.FloatField(default=None,null=True)
     moyenne_s2 = models.FloatField(default=None,null=True)
